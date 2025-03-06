@@ -14,17 +14,96 @@
 </head>
 
 <body>
-    <div>
+    <div class="container-md border border-3">
         <header>
-
+            <div class="container text-center">
+                <div class="row align-items-center">
+                    <div class="col">
+                        <img src="img/logo.png" height="70px" alt="logo">
+                    </div>
+                    <div class="col">
+                        <h1>Game Store</h1>
+                    </div>
+                    <div class="col">
+                        <button type="button" class="btn btn-primary">Inciar sesión</button>
+                    </div>
+                </div>
+            </div>
         </header>
         <main>
-            <form action=""></form>
+            <form>
+                <div class="mb-3">
+                    <label for="title" class="form-label">Título</label>
+                    <input type="text" class="form-control" id="title" aria-describedby="gameTitle">
+                    <div id="gameTitle" class="form-text">Escribe el título del juego.</div>
+                </div>
+                <div class="mb-3">
+                    <label for="publisher" class="form-label">Publisher</label>
+                    <input type="text" class="form-control" id="publisher" aria-describedby="gamePublisher">
+                    <div id="gamePublisher" class="form-text">Escribe el nombre de la compañia que publica el juego.
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label for="launch" class="form-label">Lanzamiento</label>
+                    <input type="text" class="form-control" id="launch" aria-describedby="gameLaunch">
+                    <div id="gameLaunch" class="form-text">Escribe la fecha en que se pondrá a la venta el juego.</div>
+                </div>
+                <div class="mb-3">
+                    <label for="preorder" class="form-label">Preventa</label>
+                    <input type="text" class="form-control" id="preorder" aria-describedby="gamePreorder">
+                    <div id="gamePreorder" class="form-text">Precio del título en la preventa.</div>
+                </div>
+                <div class="mb-3">
+                    <label for="price" class="form-label">Precio</label>
+                    <input type="text" class="form-control" id="price" aria-describedby="gamePrice">
+                    <div id="gamePrice" class="form-text">Precio del título en su lanzamiento.</div>
+                </div>
+                <div class="mb-3">
+                    <label for="stock" class="form-label">Existencias</label>
+                    <input type="text" class="form-control" id="stock" aria-describedby="gameStock">
+                    <div id="gameStock" class="form-text">Existencias del juego en el inventario de la tienda.</div>
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
             <!-- Tabla para mostrar los datos almacenados en el LocalStorage -->
-            <div></div>
+            <div>
+                <div class="table-responsive">
+                    <table class="table">
+                        <caption>List of users</caption>
+                        <thead>
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">TÍTULO</th>
+                                <th scope="col">PUBLISHER</th>
+                                <th scope="col">LANZAMIENTO</th>
+                                <th scope="col">PREVENTA</th>
+                                <th scope="col">PRECIO</th>
+                                <th scope="col">EXISTENCIAS</th>
+                                <th scope="col">OPCIONES</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row">1</th>
+                                <td>Tetris Story</td>
+                                <td>The Tetris Company</td>
+                                <td>10-4-2025</td>
+                                <td>$ 1,200.00</td>
+                                <td>$ 1,500.00</td>
+                                <td>20</td>
+                                <td>
+                                    <button type="submit" class="btn btn-warning">Editar</button>
+                                    <button type="submit" class="btn btn-danger">Borrar</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
         </main>
-        <footer>
-
+        <footer class="bg-success-subtle">
+            <hr>
+            <p class="">© Game Store 2025. Todos los derechos reservados.</p>
         </footer>
     </div>
     <script src="scripts.js"></script>
