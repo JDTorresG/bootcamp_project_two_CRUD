@@ -32,20 +32,24 @@
             <h2 class="text-center p-2 mt-3">Agregar juego al inventario</h2>
             <form id="formInventory" class="shadow-sm p-3 mb-5 bg-body-tertiary border rounded-2">
                 <div class="mb-3">
+                    <label for="indexGame" class="form-label">#</label>
+                    <input type="text" class="form-control" id="indexGame">
+                </div>
+                <div class="mb-3">
                     <label for="title" class="form-label">Título</label>
-                    <input type="text" class="form-control" id="title" aria-describedby="gameTitle">
+                    <input type="text" class="form-control" id="title">
                 </div>
                 <div class="mb-3">
                     <label for="publisher" class="form-label">Publisher</label>
-                    <input type="text" class="form-control" id="publisher" aria-describedby="gamePublisher">
+                    <input type="text" class="form-control" id="publisher">
                 </div>
                 <div class="mb-3">
                     <label for="price" class="form-label">Precio</label>
-                    <input type="text" class="form-control" id="price" aria-describedby="gamePrice">
+                    <input type="text" class="form-control" id="price" >
                 </div>
                 <div class="mb-3">
                     <label for="stock" class="form-label">Existencias</label>
-                    <input type="text" class="form-control" id="stock" aria-describedby="gameStock">
+                    <input type="text" class="form-control" id="stock">
                 </div>
                 <button type="submit" class="btn btn-primary text-center">Agregar artículo</button>
             </form>
@@ -63,8 +67,8 @@
                                 <th scope="col">OPCIONES</th>
                             </tr>
                         </thead>
-                        <tbody>
-                            <tr>
+                        <tbody id="bodyGamesTable">
+                            <!-- <tr>
                                 <th scope="row">1</th>
                                 <td>Tetris Story</td>
                                 <td>The Tetris Company</td>
@@ -74,7 +78,7 @@
                                     <button type="submit" class="btn btn-warning">Editar</button>
                                     <button type="submit" class="btn btn-danger">Borrar</button>
                                 </td>
-                            </tr>
+                            </tr> -->
                         </tbody>
                     </table>
                 </div>
