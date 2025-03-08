@@ -1,4 +1,4 @@
-// Primera parte: acceso al documento y programación de la configuración del formulario.
+// Primera parte: acceso al documento para obetener los datos del formulario.
 
 document.addEventListener('DOMContentLoaded', () => {
     drawGamesHTML();
@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
         let price = document.getElementById("price").value;
         let stock = document.getElementById("stock").value;
 
-        if ( !key || !title || !publisher || !price || !stock) {
+        if (!key || !title || !publisher || !price || !stock) {
             alert("Por favor, es necesario llenar todos los campos.");
             return;
         }
@@ -22,27 +22,28 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
+// SEGUNDA PARTE: Declaración de variables y arreglos principales de la aplicación.
 
-const getGamesFromLocalStorage = () => {
+const getGamesFromLocalStorage = () => { //Declaración de variable para obtener la información de los juegos desde el LocalStorage
     return JSON.parse(localStorage.getItem("games")) || [];
 };
 
-const updateGamesInLocalStorage = (game) => {
+const updateGamesInLocalStorage = (game) => { //Delcaración de variable para actualizar la información de los juegos en la LocalStorage
     let currentGames = getGamesFromLocalStorage();
     currentGames.push(game);
     localStorage.setItem("games", JSON.stringify(currentGames));
-    drawGamesHTML();
+    drawGamesHTML(); //Llama a la función que permite redibujar la tabla que muestra la información de los juegos.
 };
 
-const addGame = (game) => {
+const addGame = (game) => { //Declaración de variable para agregar un nuevo juego al LocalStorage
     updateGamesInLocalStorage(game);
 };
 
-const emptyForm = () => {
+const emptyForm = () => { //Declaración de variable para limpiar el formulario.
     document.getElementById("formInventory").reset();
 };
 
-const drawGamesHTML = () => {
+const drawGamesHTML = () => { //Declaración y configuración de variable que dibuja la tabla en la pantalla.
     const tableBody = document.getElementById("bodyGamesTable");
     tableBody.innerHTML = "";
     const games = getGamesFromLocalStorage();
@@ -50,24 +51,27 @@ const drawGamesHTML = () => {
     games.forEach((game, indexGame) => {
         const row = document.createElement("tr");
         row.innerHTML = `
-            <td>${indexGame + 1}</td>
-            <td>${game.key}</td>
-            <td>${game.title}</td>
-            <td>${game.publisher}</td>
-            <td>${game.price}</td>
-            <td>${game.stock}</td>
-            <td class="text-center">
-                <button onclick="eraseGame(${indexGame})" type="button" class="btn btn-danger mt-3">Eliminar</button>
-                <button onclick="editGame(${indexGame})" type="button" class="btn btn-warning mt-3">Editar</button>
+            <td class="h-100 p-3">${indexGame + 1}</td>
+            <td class="h-100 p-3">${game.key}</td>
+            <td class="h-100 p-3">${game.title}</td>
+            <td class="h-100 p-3">${game.publisher}</td>
+            <td class="h-100 p-3">${game.price}</td>
+            <td class="h-100 p-3">${game.stock}</td>
+            <td class="position-relative h-100 p-2">
+                <button onclick="eraseGame(${indexGame})" type="button" class="btn btn-danger">Eliminar</button>
+                <button onclick="editGame(${indexGame})" type="button" class="btn btn-warning">Editar</button>
             </td>
             `;
         tableBody.appendChild(row);
     });
 };
 
-function editGame(index) {
+//TERCERA PARTE: Funciones de la aplicación
+
+function editGame(index) { //Función para editar la información de los juegos almacenados en la LocalStorage
     const games = getGamesFromLocalStorage();
     const game = games[index];
+    //Muestra el formulario para editar la información de la LocalStorage
     document.getElementById("body").innerHTML = `
         <h2 class="text-center">Editar Juego</h2>
         <form id="formInventory">
@@ -97,10 +101,9 @@ function editGame(index) {
     `;
 }
 
-function update(index) {
+function update(index) { //Función del botón que guarda los cambios hechos en la información de la LocalStorage
     const games = getGamesFromLocalStorage();
     games[index] = {
-        index: document.getElementById("newIndexGame").value,
         key: document.getElementById("newKey").value,
         title: document.getElementById("newTitle").value,
         publisher: document.getElementById("newPublisher").value,
@@ -112,15 +115,14 @@ function update(index) {
     drawGamesHTML(); // Actualiza la tabla
 }
 
-function eraseGame(index) {
+function eraseGame(index) { //Función para borrar los datos de un juego almacenados en la LocalStorage
     let games = getGamesFromLocalStorage();
     games.splice(index, 1);
     localStorage.setItem("games", JSON.stringify(games));
     drawGamesHTML(); // Para actualizar la tabla
 }
 
-
-function principalView() {
+function principalView() { //Función para redibujar la página principal del inventario
     document.getElementById("body").innerHTML = `
     <div class="shadow-sm container-sm mb-4 border rounded-2">
         <header class="container text-center p-3 bg-black text-light">
@@ -164,10 +166,11 @@ function principalView() {
             <!-- Tabla para mostrar los datos almacenados en el LocalStorage -->
             <div>
                 <div class="table-responsive">
-                    <table class="table">
+                    <table class="table table-striped">
                         <thead>
-                            <tr>
+                            <tr class="table-dark">
                                 <th scope="col">#</th>
+                                <th scope="col">CLAVE</th>
                                 <th scope="col">TÍTULO</th>
                                 <th scope="col">PUBLISHER</th>
                                 <th scope="col">PRECIO</th>
@@ -176,17 +179,6 @@ function principalView() {
                             </tr>
                         </thead>
                         <tbody id="bodyGamesTable">
-                            <!-- <tr>
-                                <th scope="row">1</th>
-                                <td>Tetris Story</td>
-                                <td>The Tetris Company</td>
-                                <td>$ 1,500.00</td>
-                                <td>20</td>
-                                <td>
-                                    <button type="submit" class="btn btn-warning">Editar</button>
-                                    <button type="submit" class="btn btn-danger">Borrar</button>
-                                </td>
-                            </tr> -->
                         </tbody>
                     </table>
                 </div>
@@ -199,5 +191,5 @@ function principalView() {
     </div>
     `;
 
-    drawGamesHTML(); 
+    drawGamesHTML(); // Para actualizar la tabla
 }
