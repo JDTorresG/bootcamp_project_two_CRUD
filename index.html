@@ -13,8 +13,8 @@
     <link rel="stylesheet" href="style.css">
 </head>
 
-<body>
-    <div class="shadow-sm container-md mb-4 border rounded-2">
+<body id="body">
+    <div class="shadow-sm container-md mb-4 border rounded-bottom">
         <header class="container text-center p-3 bg-black text-light">
             <div class="row align-items-center">
                 <div class="col">
@@ -32,8 +32,8 @@
             <h2 class="text-center p-2 mt-3">Agregar juego al inventario</h2>
             <form id="formInventory" class="shadow-sm p-3 mb-5 bg-body-tertiary border rounded-2">
                 <div class="mb-3">
-                    <label for="indexGame" class="form-label">#</label>
-                    <input type="text" class="form-control" id="indexGame">
+                    <label for="key" class="form-label">Clave del producto</label>
+                    <input type="text" class="form-control" id="key">
                 </div>
                 <div class="mb-3">
                     <label for="title" class="form-label">Título</label>
@@ -45,11 +45,11 @@
                 </div>
                 <div class="mb-3">
                     <label for="price" class="form-label">Precio</label>
-                    <input type="text" class="form-control" id="price" >
+                    <input type="number" class="form-control" id="price">
                 </div>
                 <div class="mb-3">
                     <label for="stock" class="form-label">Existencias</label>
-                    <input type="text" class="form-control" id="stock">
+                    <input type="number" class="form-control" id="stock">
                 </div>
                 <button type="submit" class="btn btn-primary text-center">Agregar artículo</button>
             </form>
@@ -60,6 +60,7 @@
                         <thead>
                             <tr>
                                 <th scope="col">#</th>
+                                <th scope="col">CLAVE</th>
                                 <th scope="col">TÍTULO</th>
                                 <th scope="col">PUBLISHER</th>
                                 <th scope="col">PRECIO</th>
@@ -89,6 +90,7 @@
             <p class="text-center text-light p-3">© Game Store 2025. Todos los derechos reservados.</p>
         </footer>
     </div>
+
     <script src="scripts.js"></script>
 </body>
 
