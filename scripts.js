@@ -131,7 +131,7 @@ function principalView() { //Función para redibujar la página principal del in
                     <img src="img/logo.png" height="70px" alt="logo">
                 </div>
                 <div class="col">
-                    <h1>Game Store</h1>
+                    <h1>Super Gaming Store</h1>
                 </div>
                 <div class="col">
                     <button type="button" class="btn btn-primary">Inciar sesión</button>
