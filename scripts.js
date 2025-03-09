@@ -98,7 +98,8 @@ function editGame(index) { //Función para editar la información de los juegos 
             <button type="button" onclick="update(${index})" class="btn btn-success">Actualizar</button>
             <button type="button" onclick="principalView()" class="btn btn-primary">Cancelar</button>
         </form>
-    `;
+    `
+    ;
 }
 
 function update(index) { //Función del botón que guarda los cambios hechos en la información de la LocalStorage
@@ -166,7 +167,7 @@ function principalView() { //Función para redibujar la página principal del in
             <!-- Tabla para mostrar los datos almacenados en el LocalStorage -->
             <div>
                 <div class="table-responsive">
-                    <table class="table table-striped">
+                    <table class="table table-striped hide">
                         <thead>
                             <tr class="table-dark">
                                 <th scope="col">#</th>

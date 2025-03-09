@@ -1,0 +1,5 @@
+/* Oculta la tabla del CRUD cuando no hay datos que mostrar. */
+
+.hide:not(:has(td)) {
+    display: none;
+}
